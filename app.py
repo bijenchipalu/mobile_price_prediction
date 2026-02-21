@@ -3,6 +3,7 @@ import pickle
 import pandas as pd
 
 # Load model and features
+# model = pickle.load(open("model.pkl", "rb"))
 model = pickle.load(open("model.pkl", "rb"))
 features = pickle.load(open("features.pkl", "rb"))
 
@@ -56,5 +57,6 @@ if st.button("🔍 Predict Price"):
     df = pd.DataFrame([inputs])
 
     price = model.predict(df)
+
 
     st.success(f"💰 Estimated Price: Rs. {int(price[0])}")
